@@ -1,52 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:Agrinova.ViewModel"
-              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:DataType="viewmodel:MainViewModel"
-             x:Class="Agrinova.View.MainPage">
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:Agrinova.ViewModel"
+        xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" x:DataType="viewmodel:MainViewModel"
+        x:Class="Agrinova.View.MainPage">
 
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="#ffffff" StatusBarStyle="DarkContent" />
+        <toolkit:StatusBarBehavior StatusBarColor="#3a472e" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Irrigar"
-                     x:Name="Irrigar"
-                     Clicked="Irrigar_Clicked"
-                    IconImageSource="dotnet_bot.png"/>
+        <ToolbarItem Text="Irrigar" x:Name="Irrigar" Clicked="Irrigar_Clicked" IconImageSource="dotnet_bot.png" />
     </ContentPage.ToolbarItems>
-    <ScrollView>
-        <StackLayout>
-            <Frame VerticalOptions="Start">
-                
-            </Frame>
-            <VerticalStackLayout
-                Spacing="25"
-                Padding="30,0"
-                VerticalOptions="Center">
+    <ScrollView BackgroundColor="White">
 
-                <Frame VerticalOptions="Start">
-                
-                </Frame>
-                <Frame BackgroundColor="Aquamarine">
-                    <Grid
-                        RowDefinitions=".30*, .70*">
-                        <Label Text="Nivél de humidade"/>
-                        <Label Grid.Row="1"
-                               FontSize="20"
-                               Text="{Binding Humidade}"/>
-                    </Grid>
-                </Frame>
-                <Frame BackgroundColor="DarkRed">
-                    <Grid
-                        RowDefinitions=".30*, .70*">
-                        <Label Text="Temperatura"/>
-                        <Label Grid.Row="1"
-                               FontSize="20"
-                               Text="{Binding Temperatura}"/>
-                    </Grid>
-                </Frame>
-            </VerticalStackLayout>
+        <StackLayout>
+            <FlexLayout Margin="10,10,0,0" AlignItems="Center" Direction="Column" HeightRequest="200"
+                    JustifyContent="SpaceBetween">
+                <StackLayout Orientation="Vertical" HeightRequest="60">
+                    <Label Text="Olá..." FontAttributes="Bold" FontSize="Title" TextColor="{StaticResource TextColor1}"
+                            FontFamily="Roboto" />
+
+                    <Label Text="Hora de checar como está sua plantação" FontSize="Subtitle"
+                            TextColor="{StaticResource TextColor1}" FontFamily="Roboto" />
+                </StackLayout>
+
+                <HorizontalStackLayout>
+                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly" AlignContent="Center"
+                            WidthRequest="350">
+                        <Frame CornerRadius="20" WidthRequest="140" HeightRequest="100" BorderColor="Transparent">
+                            <Frame.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#00B3FF" Offset="0.1" />
+                                    <GradientStop Color="#0A95D0" Offset="4.0" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Label TextColor="White" Text="Nivél de humidade" FontAttributes="Bold" FontSize="Micro" HorizontalTextAlignment="Center"  />
+                                    <Label TextColor="White" Grid.Row="1" FontSize="40" Text="{Binding Humidade}" HorizontalTextAlignment="Center" />
+                                </Grid>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="20" WidthRequest="140" HeightRequest="100" BorderColor="Transparent">
+                            <Frame.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FF4D00" Offset="0.1" />
+                                    <GradientStop Color="#D03A0A" Offset="4.0" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <Label TextColor="White" Text="Temperatura" FontAttributes="Bold" FontSize="Micro" HorizontalTextAlignment="Center" />
+                                    <Label TextColor="White"   Grid.Row="1" FontSize="40" Text="{Binding Temperatura}" HorizontalTextAlignment="Center" />
+                                </Grid>
+
+                            </StackLayout>
+                        </Frame>
+
+                    </FlexLayout>
+
+                </HorizontalStackLayout>
+
+            </FlexLayout>
+
         </StackLayout>
     </ScrollView>
 
