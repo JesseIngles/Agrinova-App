@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Agrinova.ViewModel"
+              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewmodel:MainViewModel"
+             x:Class="Agrinova.View.MainPage">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#ffffff" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Irrigar"
+                     x:Name="Irrigar"
+                     Clicked="Irrigar_Clicked"
+                    IconImageSource="dotnet_bot.png"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <Frame VerticalOptions="Start">
+                
+            </Frame>
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
+
+                <Frame VerticalOptions="Start">
+                
+                </Frame>
+                <Frame BackgroundColor="Aquamarine">
+                    <Grid
+                        RowDefinitions=".30*, .70*">
+                        <Label Text="Nivél de humidade"/>
+                        <Label Grid.Row="1"
+                               FontSize="20"
+                               Text="{Binding Humidade}"/>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="DarkRed">
+                    <Grid
+                        RowDefinitions=".30*, .70*">
+                        <Label Text="Temperatura"/>
+                        <Label Grid.Row="1"
+                               FontSize="20"
+                               Text="{Binding Temperatura}"/>
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
