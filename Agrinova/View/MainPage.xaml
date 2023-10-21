@@ -7,72 +7,104 @@
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="#3a472e" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Irrigar" x:Name="Irrigar" Clicked="Irrigar_Clicked" IconImageSource="dotnet_bot.png" />
-    </ContentPage.ToolbarItems>
+
+    <Shell.TitleView>
+        <FlexLayout AlignItems="Center" AlignContent="Center" JustifyContent="SpaceBetween" VerticalOptions="Center"
+                HorizontalOptions="Center">
+            <Label Text="Agrinova" TextColor="White" FontAttributes="Bold" FontSize="Title" FontFamily="Roboto" />
+            <Button BorderWidth="1" WidthRequest="150" BorderColor="White" CornerRadius="15" Text="Irregar"
+                    TextColor="White" FontAttributes="Bold" FontFamily="Roboto" BackgroundColor="Transparent"
+                    VerticalOptions="Center" />
+        </FlexLayout>
+    </Shell.TitleView>
     <ScrollView BackgroundColor="White">
 
         <StackLayout>
-            <FlexLayout Margin="10,10,0,0" AlignItems="Center" Direction="Column" HeightRequest="200"
-                    JustifyContent="SpaceBetween">
-                <StackLayout Orientation="Vertical" HeightRequest="60">
-                    <Label Text="Olá..." FontAttributes="Bold" FontSize="Title" TextColor="{StaticResource TextColor1}"
-                            FontFamily="Roboto" />
+            <Label Margin="0,0,0,0" HorizontalTextAlignment="Start" WidthRequest="300" Text="Olá..." HorizontalOptions="Center" FontAttributes="Bold" FontSize="Title" FontFamily="Roboto" />
+            <Label Margin="0,0,0,20" HorizontalOptions="Center" VerticalOptions="Center"
+                    Text="Hora de checar como está sua plantação" FontSize="Subtitle" FontAttributes="Bold"
+                    TextColor="{StaticResource TextColor1}" FontFamily="Roboto" />
 
-                    <Label Text="Hora de checar como está sua plantação" FontSize="Subtitle"
-                            TextColor="{StaticResource TextColor1}" FontFamily="Roboto" />
-                </StackLayout>
+            <Frame WidthRequest="350" HeightRequest="350" BackgroundColor="Transparent" BorderColor="Transparent">
+                <VerticalStackLayout>
+                    <Label Text="Condições" FontAttributes="Bold" FontSize="Title" FontFamily="Roboto"
+                            VerticalOptions="Start" />
+                    <HorizontalStackLayout WidthRequest="350" HeightRequest="200" VerticalOptions="Center">
+                        <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly" AlignContent="Center"
+                                WidthRequest="350">
+                            <Frame CornerRadius="20" WidthRequest="140" HeightRequest="100" BorderColor="Transparent">
+                                <Frame.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#00B3FF" Offset="0.1" />
+                                        <GradientStop Color="#0A95D0" Offset="4.0" />
+                                    </LinearGradientBrush>
+                                </Frame.Background>
+                                <StackLayout>
 
-                <HorizontalStackLayout>
-                    <FlexLayout AlignItems="Center" JustifyContent="SpaceEvenly" AlignContent="Center"
-                            WidthRequest="350">
-                        <Frame CornerRadius="20" WidthRequest="140" HeightRequest="100" BorderColor="Transparent">
-                            <Frame.Background>
-                                <LinearGradientBrush>
-                                    <GradientStop Color="#00B3FF" Offset="0.1" />
-                                    <GradientStop Color="#0A95D0" Offset="4.0" />
-                                </LinearGradientBrush>
-                            </Frame.Background>
-                            <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Label TextColor="White" Text="Nivél de humidade" FontAttributes="Bold"
+                                                FontSize="Micro" HorizontalTextAlignment="Center" />
+                                        <Label TextColor="White" FontAttributes="Bold" Grid.Row="1" FontSize="40" Text="{Binding Humidade}"
+                                                HorizontalTextAlignment="Center" />
+                                    </Grid>
 
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition />
-                                        <RowDefinition />
-                                    </Grid.RowDefinitions>
-                                    <Label TextColor="White" Text="Nivél de humidade" FontAttributes="Bold" FontSize="Micro" HorizontalTextAlignment="Center"  />
-                                    <Label TextColor="White" Grid.Row="1" FontSize="40" Text="{Binding Humidade}" HorizontalTextAlignment="Center" />
-                                </Grid>
+                                </StackLayout>
+                            </Frame>
 
-                            </StackLayout>
-                        </Frame>
+                            <Frame CornerRadius="20" WidthRequest="140" HeightRequest="100" BorderColor="Transparent">
+                                <Frame.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#FF4D00" Offset="0.1" />
+                                        <GradientStop Color="#D03A0A" Offset="4.0" />
+                                    </LinearGradientBrush>
+                                </Frame.Background>
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
 
-                        <Frame CornerRadius="20" WidthRequest="140" HeightRequest="100" BorderColor="Transparent">
-                            <Frame.Background>
-                                <LinearGradientBrush>
-                                    <GradientStop Color="#FF4D00" Offset="0.1" />
-                                    <GradientStop Color="#D03A0A" Offset="4.0" />
-                                </LinearGradientBrush>
-                            </Frame.Background>
-                            <StackLayout>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition />
-                                        <RowDefinition />
-                                    </Grid.RowDefinitions>
+                                        <Label TextColor="White" Text="Temperatura" FontAttributes="Bold"
+                                                FontSize="Micro" HorizontalTextAlignment="Center" />
+                                        <Label TextColor="White" FontAttributes="Bold" Grid.Row="1" FontSize="40" Text="{Binding Temperatura}"
+                                                HorizontalTextAlignment="Center" />
+                                    </Grid>
 
-                                    <Label TextColor="White" Text="Temperatura" FontAttributes="Bold" FontSize="Micro" HorizontalTextAlignment="Center" />
-                                    <Label TextColor="White"   Grid.Row="1" FontSize="40" Text="{Binding Temperatura}" HorizontalTextAlignment="Center" />
-                                </Grid>
+                                  
+                                </StackLayout>
+                            </Frame>
 
-                            </StackLayout>
-                        </Frame>
+                        </FlexLayout>
 
-                    </FlexLayout>
+                    </HorizontalStackLayout>
+                   
+                    <Button Text="Configurar Ciclo" FontSize="Medium" TextColor="White" FontFamily="Roboto"  HeightRequest="60" CornerRadius="15">
+                        <Button.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#4C6707" Offset="0.1" />
+                                <GradientStop Color="#3A472E" Offset="4.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
 
-                </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
 
-            </FlexLayout>
+            <Frame WidthRequest="350" HeightRequest="300" BackgroundColor="Gray" BorderColor="Transparent">
+                <VerticalStackLayout>
+                    <Label Text="Histórico" FontAttributes="Bold" FontSize="Title" FontFamily="Roboto"
+                            VerticalOptions="Start" />
+                    <ScrollView>
+                        
+                    </ScrollView>
+                </VerticalStackLayout>
+                
+            </Frame>
 
         </StackLayout>
     </ScrollView>
